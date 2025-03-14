@@ -1,0 +1,66 @@
+{
+  "name": "iptv-player",
+  "version": "5.0.3",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.iptvplayer",
+    "productName": "IPTV Player",
+    "copyright": "Copyright © 2025",
+    "win": {
+      "publisherName": "ห้ามจำหน่าย",
+      "legalTrademarks": "IPTV Player™",
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
+      "category": "AudioVideo",
+      "icon": "assets/icon.png"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.video",
+      "icon": "assets/icon.icns"
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "preload.js",
+      "channels.js",
+      "tv-app.png",
+      "assets/**/*"
+    ],
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "IPTV Player",
+      "license": "license.txt"
+    }
+  },
+  "devDependencies": {
+    "electron": "^35.0.1",
+    "electron-builder": "^24.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.8.3",
+    "electron-prompt": "^1.7.0",
+    "electron-store": "^8.2.0"
+  }
+}
